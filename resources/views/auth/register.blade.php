@@ -60,8 +60,8 @@
             <x-link :href="route('password.request')">
                 Olvidaste tu password
             </x-link>
-
         </div>
+        
         <x-primary-button class="w-full justify-center">
             {{ __('Crear Cuenta') }}
         </x-primary-button>
