@@ -10,7 +10,12 @@
         <x-input-label for="salario" :value="__('Salario Mensual')" />
 
         <select name="salario" id="salario"
-            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" required>
+            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full">
+            <option>--Seleccione --</option>
+
+            @foreach ($salarios as $salario)
+                <option value="{{ $salario->id }}">{{ $salario->salario }}</option>
+            @endforeach
         </select>
     </div>
 
@@ -18,7 +23,7 @@
         <x-input-label for="categoria" :value="__('Categoria')" />
 
         <select name="categoria" id="categoria"
-            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full" required>
+            class="border-gray-300 focus:border-indigo-500 focus:ring-indigo-500 rounded-md shadow-sm w-full">
         </select>
     </div>
 
