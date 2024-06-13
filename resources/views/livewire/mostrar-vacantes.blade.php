@@ -1,6 +1,4 @@
 <div class="">
-
-
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
 
         @forelse ($vacantes as $vacante)
@@ -16,7 +14,7 @@
                         class="bg-slate-800 py-2 items-center text-center px-4 rounded-lg text-white text-xs font-bold uppercase">
                         Candidatos
                     </a>
-                    <a href=""
+                    <a href="{{ route('vacantes.edit', $vacante->id) }}"
                         class="bg-blue-800 py-2 items-center text-center px-4 rounded-lg text-white text-xs font-bold uppercase">
                         Editar
                     </a>
