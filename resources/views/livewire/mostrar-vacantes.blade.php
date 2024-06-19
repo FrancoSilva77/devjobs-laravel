@@ -40,31 +40,33 @@
     <script src="//cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 
     <script>
-        Livewire.on('mostrarAlerta', ({
-            vacante_id
-        }) => {
-            Swal.fire({
-                title: 'Eliminar Vacante',
-                text: "Una vacante eliminada no se puede recuperar",
-                icon: 'warning',
-                showCancelButton: true,
-                confirmButtonColor: '#3085d6',
-                cancelButtonColor: '#d33',
-                confirmButtonText: 'Si, Eliminar!',
-                cancelButtonText: 'Cancelar'
-            }).then((result) => {
-                if (result.isConfirmed) {
-                    // Eliminar la vacante
-                    Livewire.dispatch('eliminarVacante', {
-                        vacante: vacante_id
-                    })
+        document.addEventListener('livewire:init', () => {
+            Livewire.on('mostrarAlerta', ({
+                vacante_id
+            }) => {
+                Swal.fire({
+                    title: 'Eliminar Vacante',
+                    text: "Una vacante eliminada no se puede recuperar",
+                    icon: 'warning',
+                    showCancelButton: true,
+                    confirmButtonColor: '#3085d6',
+                    cancelButtonColor: '#d33',
+                    confirmButtonText: 'Si, Eliminar!',
+                    cancelButtonText: 'Cancelar'
+                }).then((result) => {
+                    if (result.isConfirmed) {
+                        // Eliminar la vacante
+                        Livewire.dispatch('eliminarVacante', {
+                            vacante: vacante_id
+                        })
 
-                    Swal.fire(
-                        'Se elimino la vacante',
-                        'Eliminado Correctamente',
-                        'success'
-                    )
-                }
+                        Swal.fire(
+                            'Se elimino la vacante',
+                            'Eliminado Correctamente',
+                            'success'
+                        )
+                    }
+                })
             })
         })
     </script>

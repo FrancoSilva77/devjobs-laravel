@@ -19,6 +19,7 @@ class MostrarVacantes extends Component
     #[On('eliminarVacante')]
     public function eliminarVacante(Vacante $vacante)
     {
+        $this->authorize('delete', $vacante);
         $vacante->delete();
     }
 
