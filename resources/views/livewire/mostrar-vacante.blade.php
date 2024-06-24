@@ -39,8 +39,23 @@
     @guest
         <div class="mt-5 bg-gray-50 border border-dashed p-5 text-center">
             <p>
-                ¿Deseas aplicar a esta vacante? <a href="{{ route('register') }}" class="font-bold text-indigo-600">Obten una cuenta y aplica a esta vacante</a>
+                ¿Deseas aplicar a esta vacante? <a href="{{ route('register') }}" class="font-bold text-indigo-600">Obten
+                    una cuenta y aplica a esta vacante</a>
             </p>
         </div>
     @endguest
+
+
+    {{-- * Forma 1 --}}
+    {{-- @can('create', App\Models\Vacante::class)
+        
+    @else
+        @livewire('postular-vacante')
+        @endcan --}}
+
+    @cannot('create', App\Models\Vacante::class)
+        @livewire('postular-vacante')
+    @endcannot
+
+
 </div>
